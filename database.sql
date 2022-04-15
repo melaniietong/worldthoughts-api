@@ -18,6 +18,6 @@ CREATE TABLE options(
 
 CREATE TABLE answers(
     answer_id SERIAL PRIMARY KEY NOT NULL,
-    options_id INT NOT NULL REFERENCES options(option_id) ON DELETE CASCADE,
+    option_id INT NOT NULL REFERENCES options(option_id) ON DELETE CASCADE,
     cookie VARCHAR(255) NOT NULL
 );
