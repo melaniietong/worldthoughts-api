@@ -60,6 +60,48 @@ app.post("/options", async(req, res) => {
     }
 });
 
+// Get all answers for an option
+app.get("/answers", async(req, res) => {
+    try {
+        const { option_id } = req.body;
+        const getAnswers = await pool.query(
+            "SELECT * FROM answers WHERE option_id = $1",
+            [option_id]
+        );
+        res.json(getAnswers.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Cast a vote for an option
+app.post("/answers", async(req, res) => {
+    try {
+        const { option_id, cookie } = req.body;
+        const newAnswer = await pool.query(
+            "INSERT INTO answers(option_id, cookie) VALUES($1, $2) RETURNING *",
+            [option_id, cookie]
+        );
+        res.json(newAnswer.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Update a user's vote
+app.put("/answers/:id", async(req, res) => {
+    try {
+        const { id } = req.params;
+        const { option_id } = req.body;
+        await pool.query( 
+            "UPDATE answers SET option_id = $1 WHERE answer_id = $2",
+            [option_id, id]
+        );
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 app.listen(6000, () => {
     console.log("Server running on port 6000...")
 });
