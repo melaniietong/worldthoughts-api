@@ -6,6 +6,32 @@ const pool = require('./db')
 app.use(cors());
 app.use(express.json());
 
+// Get all polls
+app.get("/polls", async(req, res) => {
+    try {
+        const getPolls = await pool.query(
+            "SELECT * FROM polls"
+        );
+        res.json(getPolls.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Create a poll
+app.post("/polls", async(req, res) => {
+    try {
+        const { question, is_single } = req.body;
+        const newPoll = await pool.query(
+            "INSERT INTO polls(question, is_single) VALUES($1, $2) RETURNING *",
+            [question, is_single]
+        );
+        res.json(newPoll.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 app.listen(6000, () => {
     console.log("Server running on port 6000...")
 });
