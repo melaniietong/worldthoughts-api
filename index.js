@@ -32,6 +32,34 @@ app.post("/polls", async(req, res) => {
     }
 });
 
+// Get all options for a poll
+app.get("/options", async(req, res) => {
+    try {
+        const { poll_id } = req.body;
+        const getOptions = await pool.query(
+            "SELECT * FROM options WHERE poll_id = $1",
+            [poll_id]
+        );
+        res.json(getOptions.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Create a options for a poll
+app.post("/options", async(req, res) => {
+    try {
+        const { poll_id, title } = req.body;
+        const newOption = await pool.query(
+            "INSERT INTO options(poll_id, title) VALUES($1, $2) RETURNING *",
+            [poll_id, title]
+        );
+        res.json(newOption.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 app.listen(6000, () => {
     console.log("Server running on port 6000...")
 });
