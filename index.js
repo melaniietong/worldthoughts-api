@@ -3,6 +3,36 @@ const app = express();
 const cors = require('cors');
 const pool = require('./db');
 
+
+// ======== SOCKET ====================================
+
+const http = require('http');
+const { Server } = require('socket.io');
+
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET"]
+    }
+});
+
+io.on("connection", (socket) => {
+    console.log("Connected");
+
+    // Server receives a call from the client then sends a call to client to update displays
+    socket.on("updateCall", () => {
+        console.log("1 Will update...")
+        socket.emit("updateNow");
+    })
+});
+
+server.listen(4000, () => {
+    console.log("Server running on port 4000...")
+});
+
+// ====================================================
+
 app.use(cors());
 app.use(express.json());
 
@@ -27,6 +57,18 @@ app.post("/polls", async(req, res) => {
             [question, is_single]
         );
         res.json(newPoll.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Get a random poll
+app.get("/polls/random", async(req, res) => {
+    try {
+        const getRanPoll = await pool.query(
+            "SELECT * FROM polls ORDER BY RANDOM() LIMIT 1"
+        );
+        res.json(getRanPoll.rows);
     } catch (err) {
         console.error(err.message);
     }
@@ -102,6 +144,3 @@ app.put("/answers/:id", async(req, res) => {
     }
 });
 
-app.listen(4000, () => {
-    console.log("Server running on port 4000...")
-});
