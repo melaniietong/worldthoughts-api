@@ -74,6 +74,20 @@ app.get("/polls/random", async(req, res) => {
     }
 });
 
+// Get a specific poll
+app.get("/polls/:id", async(req, res) => {
+    try {
+        const { id } = req.params;
+        const getPoll = await pool.query( 
+            "SELECT * FROM polls WHERE poll_id = $1",
+            [id]
+        );
+        res.json(getPoll.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 // Get all options for a poll
 app.get("/options", async(req, res) => {
     try {
