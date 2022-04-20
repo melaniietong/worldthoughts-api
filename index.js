@@ -51,7 +51,7 @@ app.get("/polls", async(req, res) => {
 // Create a poll
 app.post("/polls", async(req, res) => {
     try {
-        const { question, is_single } = req.body;
+        const { question, is_single } = req.query;
         const newPoll = await pool.query(
             "INSERT INTO polls(question, is_single) VALUES($1, $2) RETURNING *",
             [question, is_single]
@@ -91,7 +91,7 @@ app.get("/polls/:id", async(req, res) => {
 // Get all options for a poll
 app.get("/options", async(req, res) => {
     try {
-        const { poll_id } = req.body;
+        const { poll_id } = req.query;
         const getOptions = await pool.query(
             "SELECT * FROM options WHERE poll_id = $1",
             [poll_id]
@@ -105,7 +105,7 @@ app.get("/options", async(req, res) => {
 // Create a options for a poll
 app.post("/options", async(req, res) => {
     try {
-        const { poll_id, title } = req.body;
+        const { poll_id, title } = req.query;
         const newOption = await pool.query(
             "INSERT INTO options(poll_id, title) VALUES($1, $2) RETURNING *",
             [poll_id, title]
@@ -119,7 +119,7 @@ app.post("/options", async(req, res) => {
 // Get all answers for an option
 app.get("/answers", async(req, res) => {
     try {
-        const { option_id } = req.body;
+        const { option_id } = req.query;
         const getAnswers = await pool.query(
             "SELECT * FROM answers WHERE option_id = $1",
             [option_id]
@@ -133,7 +133,7 @@ app.get("/answers", async(req, res) => {
 // Cast a vote for an option
 app.post("/answers", async(req, res) => {
     try {
-        const { option_id, cookie } = req.body;
+        const { option_id, cookie } = req.query;
         const newAnswer = await pool.query(
             "INSERT INTO answers(option_id, cookie) VALUES($1, $2) RETURNING *",
             [option_id, cookie]
@@ -148,7 +148,7 @@ app.post("/answers", async(req, res) => {
 app.put("/answers/:id", async(req, res) => {
     try {
         const { id } = req.params;
-        const { option_id } = req.body;
+        const { option_id } = req.query;
         await pool.query( 
             "UPDATE answers SET option_id = $1 WHERE answer_id = $2",
             [option_id, id]
