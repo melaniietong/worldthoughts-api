@@ -19,5 +19,5 @@ CREATE TABLE options(
 CREATE TABLE answers(
     answer_id SERIAL PRIMARY KEY NOT NULL,
     option_id INT NOT NULL REFERENCES options(option_id) ON DELETE CASCADE,
-    cookie VARCHAR(255) NOT NULL
+    cookie VARCHAR(10) NOT NULL
 );
