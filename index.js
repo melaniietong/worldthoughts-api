@@ -119,12 +119,34 @@ app.post("/options", async(req, res) => {
 // Get all answers for an option
 app.get("/answers", async(req, res) => {
     try {
-        const { option_id } = req.query;
-        const getAnswers = await pool.query(
-            "SELECT * FROM answers WHERE option_id = $1",
-            [option_id]
+        const { poll_id, option_id } = req.query;
+        if (option_id) { 
+            const getAnswers = await pool.query(
+                "SELECT COUNT(*) FROM answers WHERE option_id = $1",
+                [option_id]
+            );
+            res.json(getAnswers.rows);
+        } else {
+            const getAllAnswers = await pool.query(
+                "SELECT COUNT(*) FROM answers WHERE poll_id = $1",
+                [poll_id]
+            );
+            res.json(getAllAnswers.rows);
+        } 
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Get all user's answer for a poll
+app.get("/answers/user", async(req, res) => {
+    try {
+        const { poll_id, cookie } = req.query;
+        const getUserAnswers = await pool.query(
+            "SELECT * FROM answers WHERE poll_id = $1 AND cookie = $2",
+            [poll_id, cookie]
         );
-        res.json(getAnswers.rows);
+        res.json(getUserAnswers.rows);
     } catch (err) {
         console.error(err.message);
     }
@@ -133,10 +155,10 @@ app.get("/answers", async(req, res) => {
 // Cast a vote for an option
 app.post("/answers", async(req, res) => {
     try {
-        const { option_id, cookie } = req.query;
+        const { poll_id, option_id, cookie } = req.body;
         const newAnswer = await pool.query(
-            "INSERT INTO answers(option_id, cookie) VALUES($1, $2) RETURNING *",
-            [option_id, cookie]
+            "INSERT INTO answers(poll_id, option_id, cookie) VALUES($1, $2, $3) RETURNING *",
+            [poll_id, option_id, cookie]
         );
         res.json(newAnswer.rows[0]);
     } catch (err) {
