@@ -18,6 +18,7 @@ CREATE TABLE options(
 
 CREATE TABLE answers(
     answer_id SERIAL PRIMARY KEY NOT NULL,
+    poll_id INT NOT NULL REFERENCES polls(poll_id) ON DELETE CASCADE,
     option_id INT NOT NULL REFERENCES options(option_id) ON DELETE CASCADE,
     cookie VARCHAR(10) NOT NULL
 );
