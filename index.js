@@ -166,14 +166,13 @@ app.post("/answers", async(req, res) => {
     }
 });
 
-// Update a user's vote
-app.put("/answers/:id", async(req, res) => {
+// Delete user's vote(s)
+app.delete("/answers", async(req, res) => {
     try {
-        const { id } = req.params;
-        const { option_id } = req.query;
+        const { poll_id, cookie } = req.query;
         await pool.query( 
-            "UPDATE answers SET option_id = $1 WHERE answer_id = $2",
-            [option_id, id]
+            "DELETE FROM answers WHERE poll_id = $1 AND cookie = $2",
+            [poll_id, cookie]
         );
     } catch (err) {
         console.error(err.message);
