@@ -3,9 +3,7 @@ const app = express();
 const cors = require('cors');
 const pool = require('./db');
 
-
 // ======== SOCKET ====================================
-
 const http = require('http');
 const { Server } = require('socket.io');
 
@@ -23,15 +21,14 @@ io.on("connection", (socket) => {
     // Server receives a call from the client then sends a call to client to update displays
     socket.on("updateCall", () => {
         console.log("1 Will update...")
-        socket.emit("updateNow");
+        io.emit("updateNow");
     })
 });
+// ====================================================
 
 server.listen(4000, () => {
     console.log("Server running on port 4000...")
 });
-
-// ====================================================
 
 app.use(cors());
 app.use(express.json());
