@@ -16,8 +16,6 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-    console.log("Connected");
-
     // Server receives a call from the client then sends a call to client to update displays
     socket.on("updateCall", () => {
         console.log("1 Will update...")
@@ -48,7 +46,7 @@ app.get("/polls", async(req, res) => {
 // Create a poll
 app.post("/polls", async(req, res) => {
     try {
-        const { question, is_single } = req.query;
+        const { question, is_single } = req.body;
         const newPoll = await pool.query(
             "INSERT INTO polls(question, is_single) VALUES($1, $2) RETURNING *",
             [question, is_single]
@@ -102,10 +100,13 @@ app.get("/options", async(req, res) => {
 // Create a options for a poll
 app.post("/options", async(req, res) => {
     try {
-        const { poll_id, title } = req.query;
+        const { title } = req.body;
+        const pollId = await pool.query(
+            "SELECT poll_id FROM polls ORDER BY poll_id DESC LIMIT 1"
+        );
         const newOption = await pool.query(
             "INSERT INTO options(poll_id, title) VALUES($1, $2) RETURNING *",
-            [poll_id, title]
+            [pollId.rows[0].poll_id, title]
         );
         res.json(newOption.rows[0]);
     } catch (err) {
