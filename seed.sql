@@ -178,3 +178,87 @@ INSERT INTO answers(poll_id, option_id, cookie) VALUES(9, floor(random() * 3 + 3
 INSERT INTO answers(poll_id, option_id, cookie) VALUES(9, floor(random() * 3 + 35), 'lYgl9BvTwm');
 INSERT INTO answers(poll_id, option_id, cookie) VALUES(9, floor(random() * 3 + 35), '8VvHdHKheB');
 INSERT INTO answers(poll_id, option_id, cookie) VALUES(9, floor(random() * 3 + 35), 'Tx9kkUkILO');
+
+INSERT INTO polls(question, is_single) VALUES('Best game of 2020?', true);
+
+INSERT INTO options(poll_id, title) VALUES(10, 'Cyberpunk 2077');
+INSERT INTO options(poll_id, title) VALUES(10, 'Animal Crossing: New Horizons');
+INSERT INTO options(poll_id, title) VALUES(10, 'The Last Of Us Part 2');
+INSERT INTO options(poll_id, title) VALUES(10, 'Hades');
+INSERT INTO options(poll_id, title) VALUES(10, 'Assassin''s Creed Valhalla');
+
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'HapIONrMuT');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'Webqys7noW');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'pgtGlQxhy7');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'ShAvC64cr6');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'r8lLnBdnyX');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'CIM9XxzmSe');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), '5Dbxx2qk5p');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'kb0RsDlpXb');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'XTYD9oFE1N');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'lYgl9BvTwm');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), '8VvHdHKheB');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(10, floor(random() * 5 + 38), 'Tx9kkUkILO');
+
+INSERT INTO polls(question, is_single) VALUES('Best game of 2021?', true);
+
+INSERT INTO options(poll_id, title) VALUES(11, 'Hitman 3');
+INSERT INTO options(poll_id, title) VALUES(11, 'Forza Horizon 5');
+INSERT INTO options(poll_id, title) VALUES(11, 'Halo Infinite');
+INSERT INTO options(poll_id, title) VALUES(11, 'Inscryption');
+INSERT INTO options(poll_id, title) VALUES(11, 'It Takes 2');
+
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'HapIONrMuT');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'Webqys7noW');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'pgtGlQxhy7');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'ShAvC64cr6');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'r8lLnBdnyX');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'CIM9XxzmSe');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), '5Dbxx2qk5p');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'kb0RsDlpXb');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'XTYD9oFE1N');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'lYgl9BvTwm');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), '8VvHdHKheB');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(11, floor(random() * 5 + 43), 'Tx9kkUkILO');
+
+INSERT INTO polls(question, is_single) VALUES('Best game of 2019?', true);
+
+INSERT INTO options(poll_id, title) VALUES(12, 'Resident Evil 2');
+INSERT INTO options(poll_id, title) VALUES(12, 'Sekiro: Shadows Die Twice');
+INSERT INTO options(poll_id, title) VALUES(12, 'Outer Wilds');
+INSERT INTO options(poll_id, title) VALUES(12, 'Control');
+INSERT INTO options(poll_id, title) VALUES(12, 'Slay the Spire');
+
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'HapIONrMuT');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'Webqys7noW');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'pgtGlQxhy7');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'ShAvC64cr6');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'r8lLnBdnyX');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'CIM9XxzmSe');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), '5Dbxx2qk5p');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'kb0RsDlpXb');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'XTYD9oFE1N');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'lYgl9BvTwm');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), '8VvHdHKheB');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(12, floor(random() * 5 + 48), 'Tx9kkUkILO');
+
+INSERT INTO polls(question, is_single) VALUES('Who do you main in Smash?', false);
+
+INSERT INTO options(poll_id, title) VALUES(13, 'Chrom');
+INSERT INTO options(poll_id, title) VALUES(13, 'Peach');
+INSERT INTO options(poll_id, title) VALUES(13, 'Olimar');
+INSERT INTO options(poll_id, title) VALUES(13, 'Pikachu/Pichu');
+INSERT INTO options(poll_id, title) VALUES(13, 'Inkling');
+
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'HapIONrMuT');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'Webqys7noW');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'pgtGlQxhy7');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'ShAvC64cr6');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'r8lLnBdnyX');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'CIM9XxzmSe');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), '5Dbxx2qk5p');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'kb0RsDlpXb');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'XTYD9oFE1N');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'lYgl9BvTwm');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), '8VvHdHKheB');
+INSERT INTO answers(poll_id, option_id, cookie) VALUES(13, floor(random() * 5 + 53), 'Tx9kkUkILO');
