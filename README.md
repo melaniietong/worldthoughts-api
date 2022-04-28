@@ -40,7 +40,7 @@ Run the server:
 
 ## Routes
 
-[Read about the routes here.](https://github.com/melaniietong/worldthoughts)
+[Read about the routes here.](./routes.md)
 
 ## Entity Relationship Diagram
 
