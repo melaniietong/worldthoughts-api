@@ -9,6 +9,8 @@ A simple and friendly real-time polling application.
 
 [Check out Worldthoughts **client** here!](https://github.com/melaniietong/worldthoughts)
 
+Created as part of my application for IGN's Code Foo 10. Read my introduction [here](https://github.com/melaniietong/worldthoughts/blob/main/responses/introduction.md) and my response to the Voltorb prompt [here](https://github.com/melaniietong/worldthoughts/blob/main/responses/voltorb.md).
+
 ## Dependencies
 - Express
 - Cors
